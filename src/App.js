@@ -1,18 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import { fetchLambda } from "./actions/apiActions";
+import { ToastContainer, Slide } from "react-toastify";
 
 function App(props) {
   const fetchInfo = () => props.fetchLambda();
-  const ShowResponse = () => {
-    if (props.loading) {
-      return <pre>Loading</pre>;
-    } else if (!!props.error) {
-      return <pre>Error: {props.error}</pre>;
-    } else {
-      return <pre>{JSON.stringify(props.data)}</pre>;
-    }
-  };
 
   return (
     <div className="App">
@@ -21,7 +13,12 @@ function App(props) {
           FETCH API
         </button>
         <br />
-        <ShowResponse />
+        {props.loading ? (
+          <span className="loader is-loading" />
+        ) : (
+          <pre>{JSON.stringify(props.data)}</pre>
+        )}
+        <ToastContainer transition={Slide} />
       </header>
     </div>
   );
