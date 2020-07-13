@@ -1,11 +1,6 @@
+import { API_ERROR, API_LOADING, API_SUCCESS } from "../constants/constants";
+import Api from "../services/Api";
 import { toast } from "react-toastify";
-
-const {
-  API_LOADING,
-  API_SUCCESS,
-  API_ERROR,
-} = require("../constants/constants");
-const { default: Api } = require("../services/Api");
 
 export const fetchLambda = () => (dispatch) => {
   dispatch({ type: API_LOADING });
