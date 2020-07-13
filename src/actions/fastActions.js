@@ -7,7 +7,7 @@ export const fetchFast = () => (dispatch) => {
   Api.fetchFast()
     .then((response) => dispatch({ type: FAST_SUCCESS, data: response.data }))
     .catch((error) => {
-      const errorMessage = error.message || "Unexpected error";
+      const errorMessage = error.message || "Unexpected Error";
       toast.error(errorMessage, { position: "top-center", autoClose: false });
       dispatch({ type: FAST_ERROR, error: errorMessage });
     });
