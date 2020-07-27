@@ -5,6 +5,7 @@ export default class Api {
     return axios.get(`${process.env.REACT_APP_API_URL}/api`);
   }
   static fetchFast() {
-    return axios.get(`${process.env.REACT_APP_API_URL}/fast`);
+    console.log("Api: ", process.env.REACT_APP_API_URL);
+    return axios.get(`${process.env.REACT_APP_API_URL}/api`);
   }
 }
